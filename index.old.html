@@ -1,0 +1,52 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Instincts</title>
+    <style>
+        body{
+          margin: 0px;
+        }
+        .wall{
+            background: url(./wallpaper-0.jpg) no-repeat fixed;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+        }
+        .wall .content{
+            padding: 10px;
+            left: 45%;
+            top: 100px;
+            color: firebrick;
+            width: 0 auto;
+            text-align: center;
+            position: absolute;
+            text-shadow: 1px 1px 1px #000000;
+        }
+        #particles-js{
+            background: rgba(0,0,0,0.8);
+            width: 100%;
+            height: 400px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wall">
+        <div id="particles-js">
+            <div class="content">
+                feminstincts
+            </div>
+        </div>
+    </div>
+    <script src="./js/particles.js"></script>
+    <script>
+        particlesJS.load('particles-js',
+        'particles.json', function(){
+            console.log('particles.json loaded...')
+        });
+    </script>
+
+</body>
+</html>
