@@ -1,0 +1,15 @@
+# .gitignore
+# Node
+node_modules/
+dist/
+.env
+.DS_Store
+# Python
+__pycache__/
+*.pyc
+# Logs
+*.log
+# OS
+Thumbs.db
+# VSCode
+.vscode/

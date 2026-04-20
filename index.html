@@ -3,148 +3,20 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Femi Ayodeji — Engineer & Creator</title>
+<title>Oluwainstincts — Femi Ayodeji</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;500;700;800&display=swap" rel="stylesheet" />
-<style>
-:root {
-  --ease: cubic-bezier(.16,1,.3,1);
-  --bg:#080e10; --bg2:#0d1719; --bg3:#111f22;
-  --surface:#162226; --border:rgba(99,215,190,.10);
-  --text:#e8f4f1; --muted:#7ba89e;
-  --accent:#3ecfad; --accent2:#5fa8e8; --accent3:#c979e0;
-  --glow:rgba(62,207,173,.18);
-}
-[data-theme="light"] {
-  --bg:#f0f7f5; --bg2:#e4efec; --bg3:#d6e8e4;
-  --surface:#ffffff; --border:rgba(20,100,85,.14);
-  --text:#0e2420; --muted:#527d74;
-  --accent:#0d9e81; --accent2:#2474c4; --accent3:#9e3dbd;
-  --glow:rgba(13,158,129,.12);
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'DM Mono',monospace;background:var(--bg);color:var(--text);line-height:1.6;transition:background .4s var(--ease),color .4s var(--ease);overflow-x:hidden}
-a{color:inherit;text-decoration:none}
-ul{list-style:none}
-#bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.55}
-
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 2.5rem;backdrop-filter:blur(18px) saturate(160%);background:rgba(8,14,16,.7);border-bottom:1px solid var(--border);transition:background .4s}
-[data-theme="light"] nav{background:rgba(240,247,245,.8)}
-.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.05rem;letter-spacing:.03em;color:var(--accent)}
-.nav-logo span{color:var(--text)}
-.nav-links{display:flex;gap:2rem;align-items:center}
-.nav-links a{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);transition:color .2s;position:relative}
-.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
-.nav-links a:hover{color:var(--text)}.nav-links a:hover::after{transform:scaleX(1)}
-#theme-btn{background:none;border:1px solid var(--border);color:var(--muted);cursor:pointer;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.95rem;transition:border-color .2s,color .2s,transform .3s var(--ease)}
-#theme-btn:hover{border-color:var(--accent);color:var(--accent);transform:rotate(30deg)}
-
-#hero{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:8rem 2.5rem 5rem;max-width:1100px;margin:0 auto}
-.hero-tag{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:1.4rem;display:flex;align-items:center;gap:.6rem}
-.hero-tag::before{content:'';display:inline-block;width:2rem;height:1px;background:var(--accent)}
-.hero-name{font-family:'DM Serif Display',serif;font-size:clamp(3rem,7vw,6rem);line-height:1.05;letter-spacing:-.02em;margin-bottom:.6rem}
-.hero-name .cursive{font-style:italic;color:var(--accent)}
-.hero-sub{font-size:clamp(.9rem,2vw,1.05rem);color:var(--muted);max-width:580px;margin-bottom:2.5rem;line-height:1.75}
-.hero-sub strong{color:var(--text);font-weight:500}
-.hero-icons{display:flex;gap:.75rem;margin-bottom:3rem;flex-wrap:wrap}
-.icon-pill{display:flex;align-items:center;gap:.45rem;padding:.4rem .85rem;border:1px solid var(--border);border-radius:2rem;font-size:.72rem;color:var(--muted);background:var(--surface);transition:border-color .25s,color .25s,transform .25s var(--ease)}
-.icon-pill:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
-.hero-cta{display:flex;gap:1rem;flex-wrap:wrap}
-.btn{padding:.65rem 1.6rem;border-radius:2rem;font-family:'DM Mono',monospace;font-size:.78rem;letter-spacing:.06em;cursor:pointer;transition:all .25s var(--ease)}
-.btn-primary{background:var(--accent);color:#051210;border:1px solid var(--accent)}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px var(--glow)}
-.btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border)}
-.btn-ghost:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
-.scroll-hint{position:absolute;bottom:2.5rem;left:2.5rem;display:flex;align-items:center;gap:.6rem;font-size:.65rem;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;animation:float 2.5s ease-in-out infinite}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-
-.section{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:6rem 2.5rem}
-.sec-label{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:3rem;display:flex;align-items:center;gap:.7rem}
-.sec-label::before{content:attr(data-n);font-size:.6rem;color:var(--muted);opacity:.7}
-.sec-title{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.1;margin-bottom:1rem}
-.sec-title em{font-style:italic;color:var(--accent)}
-.divider{width:100%;height:1px;background:var(--border);margin-bottom:3.5rem}
-
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
-.reveal.visible{opacity:1;transform:translateY(0)}
-.reveal-d1{transition-delay:.1s}.reveal-d2{transition-delay:.2s}
-.reveal-d3{transition-delay:.3s}.reveal-d4{transition-delay:.4s}
-
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
-.about-text p{color:var(--muted);line-height:1.85;font-size:.88rem;margin-bottom:1rem}
-.about-text p strong{color:var(--text)}
-.cards-2x2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.interest-card{background:var(--surface);border:1px solid var(--border);border-radius:1rem;padding:1.2rem;transition:border-color .25s,transform .25s var(--ease)}
-.interest-card:hover{border-color:var(--accent);transform:translateY(-3px)}
-.interest-card .ic-emoji{font-size:1.5rem;margin-bottom:.5rem;display:block}
-.interest-card .ic-title{font-family:'Syne',sans-serif;font-weight:700;font-size:.82rem;color:var(--text);margin-bottom:.25rem}
-.interest-card .ic-desc{font-size:.72rem;color:var(--muted)}
-
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.5rem}
-.skill-group{background:var(--surface);border:1px solid var(--border);border-radius:1rem;padding:1.4rem;transition:border-color .25s,transform .25s var(--ease)}
-.skill-group:hover{border-color:var(--accent2);transform:translateY(-3px)}
-.skill-group-title{font-family:'Syne',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent2);margin-bottom:.9rem;display:flex;align-items:center;gap:.4rem}
-.skill-tags{display:flex;flex-wrap:wrap;gap:.4rem}
-.skill-tag{font-size:.68rem;padding:.25rem .6rem;border-radius:2rem;border:1px solid var(--border);color:var(--muted);background:var(--bg3);transition:border-color .2s,color .2s}
-.skill-tag:hover{border-color:var(--accent2);color:var(--accent2)}
-
-.exp-list{position:relative}
-.exp-list::before{content:'';position:absolute;left:0;top:4px;bottom:0;width:1px;background:var(--border)}
-.exp-item{padding:0 0 2.8rem 2rem;position:relative}
-.exp-item::before{content:'';position:absolute;left:-4px;top:5px;width:9px;height:9px;border-radius:50%;background:var(--accent);border:2px solid var(--bg)}
-.exp-period{font-size:.65rem;letter-spacing:.12em;color:var(--muted);text-transform:uppercase;margin-bottom:.4rem}
-.exp-role{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;margin-bottom:.2rem}
-.exp-type{display:inline-block;font-size:.6rem;padding:.15rem .5rem;border:1px solid var(--border);border-radius:2rem;color:var(--muted);margin-left:.5rem;font-family:'DM Mono',monospace}
-.exp-company{font-size:.8rem;color:var(--accent);margin-bottom:.7rem}
-.exp-desc{font-size:.8rem;color:var(--muted);line-height:1.75;max-width:680px}
-.exp-desc li{list-style:disc;list-style-position:outside;padding-left:.1rem;margin-left:1rem;margin-bottom:.3rem}
-
-.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem}
-.project-card{background:var(--surface);border:1px solid var(--border);border-radius:1.2rem;padding:1.6rem;display:flex;flex-direction:column;gap:.8rem;transition:border-color .25s,transform .3s var(--ease),box-shadow .3s}
-.project-card:hover{border-color:var(--accent);transform:translateY(-5px);box-shadow:0 16px 40px var(--glow)}
-.project-header{display:flex;justify-content:space-between;align-items:flex-start}
-.project-icon{font-size:1.6rem}
-.project-links{display:flex;gap:.5rem}
-.project-link{font-size:.7rem;color:var(--muted);padding:.2rem .5rem;border:1px solid var(--border);border-radius:.4rem;transition:color .2s,border-color .2s}
-.project-link:hover{color:var(--accent);border-color:var(--accent)}
-.project-name{font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem}
-.project-desc{font-size:.78rem;color:var(--muted);line-height:1.7}
-.project-stack{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:auto}
-.stack-badge{font-size:.63rem;padding:.2rem .55rem;background:var(--bg3);border:1px solid var(--border);border-radius:2rem;color:var(--muted)}
-
-.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
-.contact-blurb{font-size:.88rem;color:var(--muted);line-height:1.85;margin-bottom:2rem}
-.contact-blurb strong{color:var(--text)}
-.contact-email{font-family:'DM Serif Display',serif;font-size:1.3rem;color:var(--accent);display:inline-flex;align-items:center;gap:.5rem;transition:gap .25s var(--ease)}
-.contact-email:hover{gap:1rem}
-.contact-email::after{content:'→'}
-.socials-title{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:1.2rem}
-.socials-grid{display:flex;flex-direction:column;gap:.7rem}
-.social-item{display:flex;align-items:center;gap:1rem;padding:.75rem 1rem;border-radius:.75rem;border:1px solid var(--border);background:var(--surface);transition:border-color .25s,transform .25s var(--ease)}
-.social-item:hover{border-color:var(--accent);transform:translateX(6px)}
-.social-icon{font-size:1.1rem;width:1.5rem;text-align:center}
-.social-handle{font-size:.78rem;color:var(--muted)}
-.social-name{font-size:.68rem;color:var(--muted);opacity:.6;margin-left:auto}
-
-footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:1.5rem 2.5rem;display:flex;justify-content:space-between;align-items:center;font-size:.68rem;color:var(--muted)}
-.footer-heart{color:var(--accent)}
-
-@media(max-width:768px){
-  nav{padding:.9rem 1.2rem}.nav-links{display:none}
-  #hero{padding:7rem 1.2rem 4rem}.section{padding:4rem 1.2rem}
-  .two-col,.contact-inner{grid-template-columns:1fr;gap:2.5rem}
-  .cards-2x2{grid-template-columns:1fr 1fr}
-  footer{flex-direction:column;gap:.5rem}
-}
+</style>
+<link rel="stylesheet" href="styles.css">
 </style>
 </head>
 <body>
 <canvas id="bg-canvas"></canvas>
 
+<!-- NAV -->
 <nav>
-  <div class="nav-logo">femi<span>.dev</span></div>
+  <div class="nav-logo">Oluwa<span>instincts</span></div>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
@@ -158,25 +30,25 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:1.
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-tag">Open to opportunities · Ibadan, Nigeria</div>
-  <h1 class="hero-name">Femi<br><span class="cursive">Ayodeji</span></h1>
+  <div class="hero-eyebrow">Femi Ayodeji · Ibadan, Nigeria</div>
+  <h1 class="hero-name">Engineer.<br><span class="cursive">Creator.</span></h1>
   <p class="hero-sub">
-    <strong>Senior Backend Engineer &amp; AI Solutions Architect</strong> with 6+ years building
-    high-availability systems across FinTech, EdTech &amp; Gaming. I scale platforms to
-    <strong>100K+ users</strong>, ship AI-powered products, and build tools that serve the communities
-    the world overlooks.
+    <strong>Senior Backend Engineer &amp; AI Solutions Architect</strong> — building high-availability
+    systems across FinTech, EdTech &amp; Gaming. I scale platforms to <strong>100K+ users</strong>,
+    ship AI-powered products, and make tools that serve the communities the world overlooks.
   </p>
-  <div class="hero-icons">
-    <span class="icon-pill">💻 Backend / AI</span>
-    <span class="icon-pill">🎮 Game Dev</span>
-    <span class="icon-pill">♻️ Circular Economy</span>
-    <span class="icon-pill">🧬 Biology nerd</span>
-    <span class="icon-pill">🎨 Visual art</span>
-    <span class="icon-pill">🌊 Swimmer</span>
+  <div class="hero-pills">
+    <span class="pill">💻 Backend / AI</span>
+    <span class="pill">🎮 Game Dev</span>
+    <span class="pill">♻️ Circular Economy</span>
+    <span class="pill">🎨 Painter</span>
+    <span class="pill">🧬 Biology enthusiast</span>
+    <span class="pill">🌊 Swimmer</span>
   </div>
   <div class="hero-cta">
     <a href="#contact" class="btn btn-primary">Get in touch</a>
     <a href="#projects" class="btn btn-ghost">View work ↓</a>
+    <span class="availability-dot">Available for opportunities</span>
   </div>
   <div class="scroll-hint">↓ scroll to explore</div>
 </section>
@@ -188,10 +60,10 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:1.
   <div class="divider"></div>
   <div class="two-col">
     <div class="about-text reveal reveal-d1">
-      <p>I'm a <strong>Senior Backend Engineer and AI Solutions Architect</strong> based in Ibadan, Nigeria. Over six years, I've led engineering teams, built payment pipelines processing millions in transactions, scaled platforms to 100K+ monthly active users, and shipped production AI systems across FinTech, EdTech, E-commerce, and Gaming.</p>
-      <p>I'm equally at home architecting microservices on AWS, integrating LLMs into real products, and leading cross-functional teams — from database design through to production deployment.</p>
-      <p>Beyond the terminal, I'm a <strong>web game developer</strong> who builds educational games that make learning feel like play. I'm also the founder of <strong>Alterbin &amp; W.A.R.M Foundation</strong>, running circular economy systems and sustainability education across Nigerian schools.</p>
-      <p>I find deep inspiration in <strong>biology</strong> — the logic of living systems maps beautifully onto distributed architecture. I paint when I need to slow down. I swim when I need to think.</p>
+      <p>I'm a <strong>Senior Backend Engineer and AI Solutions Architect</strong> based in Ibadan, Nigeria. Over six years, I've led engineering teams, built payment pipelines processing millions in transactions, scaled platforms to 100K+ MAU, and shipped production AI systems across FinTech, EdTech, E-commerce, and Gaming.</p>
+      <p>I'm equally at home architecting microservices on AWS, integrating LLMs into real products, and leading cross-functional teams — from database design through to production deployment. Beyond the backend, I'm a <strong>web game developer</strong> who builds educational experiences that make learning feel like play.</p>
+      <p>I'm also the founder of <strong>Alterbin &amp; W.A.R.M Foundation</strong>, running circular economy and sustainability education across Nigerian schools — because building for impact doesn't stop at the terminal.</p>
+      <p>In my leisure time, I do <strong>traditional painting and drawing</strong>. I'm fascinated by <strong>biology</strong>. And I swim — because some problems only solve themselves underwater.</p>
     </div>
     <div class="cards-2x2 reveal reveal-d2">
       <div class="interest-card">
@@ -202,17 +74,17 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:1.
       <div class="interest-card">
         <span class="ic-emoji">🎮</span>
         <div class="ic-title">Game Dev</div>
-        <div class="ic-desc">Educational HTML5 games, PhaserJS, PixiJS, casino integrations, gamification.</div>
-      </div>
-      <div class="interest-card">
-        <span class="ic-emoji">♻️</span>
-        <div class="ic-title">Circular Economy</div>
-        <div class="ic-desc">Founder of Alterbin — waste-to-value, PET recovery, sustainability education.</div>
+        <div class="ic-desc">Educational HTML5 games, PhaserJS, casino integrations, gamification systems.</div>
       </div>
       <div class="interest-card">
         <span class="ic-emoji">🎨</span>
-        <div class="ic-title">Art &amp; Biology</div>
-        <div class="ic-desc">Paints to slow down. Swims to think. Fascinated by living systems.</div>
+        <div class="ic-title">Painting &amp; Drawing</div>
+        <div class="ic-desc">Traditional media — a practice in patience, observation, and slowing down.</div>
+      </div>
+      <div class="interest-card">
+        <span class="ic-emoji">🌊</span>
+        <div class="ic-title">Swimming</div>
+        <div class="ic-desc">Where the noise stops and the thinking begins.</div>
       </div>
     </div>
   </div>
@@ -233,7 +105,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:1.
       </div>
     </div>
     <div class="skill-group reveal reveal-d2">
-      <div class="skill-group-title">🔧 Backend Frameworks</div>
+      <div class="skill-group-title">🔧 Frameworks</div>
       <div class="skill-tags">
         <span class="skill-tag">NestJS</span><span class="skill-tag">FastAPI</span>
         <span class="skill-tag">.NET Core</span><span class="skill-tag">Django</span>
@@ -324,7 +196,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:1.
       <div class="exp-role">Senior Software Engineer</div>
       <div class="exp-company">Eze — USA</div>
       <div class="exp-desc"><ul>
-        <li>Built a GPT-powered Smart Inventory system processing 700K+ seller data files, improving listing accuracy from 60% to 85% via NLP-driven extraction.</li>
+        <li>Built a GPT-powered Smart Inventory system processing 700K+ seller data files, improving listing accuracy from 60% to 85%.</li>
         <li>Automated 500K+ product listings using AI categorisation and quality validation.</li>
         <li>Delivered auctions, virtual cart, Black Friday campaigns, and integrations with QUIPT &amp; Seller Cloud.</li>
       </ul></div>
@@ -371,76 +243,98 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:1.
   <div class="divider"></div>
   <div class="projects-grid">
 
+    <!-- AI -->
     <div class="project-card reveal reveal-d1">
       <div class="project-header">
-        <span class="project-icon">📚</span>
-        <div class="project-links"><a href="https://app.e-limu.org" target="_blank" class="project-link">Live ↗</a></div>
+        <span class="project-icon">🧪</span>
+        <span></span>
       </div>
-      <div class="project-name">eLimu World</div>
-      <p class="project-desc">Interactive educational games serving 100K+ MAU across Africa. Built Math Ninja, Numbee, Time Machine, Picture It and more — with AI voice synthesis for character animations.</p>
-      <div class="project-stack">
-        <span class="stack-badge">PhaserJS</span><span class="stack-badge">NestJS</span><span class="stack-badge">TypeScript</span><span class="stack-badge">AWS</span><span class="stack-badge">ElevenLabs</span>
-      </div>
+      <div class="project-cat">AI Tool</div>
+      <div class="project-name">lyst</div>
+      <p class="project-desc">A CLI-powered data analyst. Ask questions about your data in plain language — lyst figures out the rest. Runs locally, talks to your databases and files, and responds like a senior analyst would.</p>
     </div>
 
     <div class="project-card reveal reveal-d2">
       <div class="project-header">
-        <span class="project-icon">🐜</span>
-        <div class="project-links"><a href="https://accumulator-ant.netlify.app" target="_blank" class="project-link">Play ↗</a></div>
+        <span class="project-icon">🧠</span>
+        <span></span>
       </div>
-      <div class="project-name">Accumulator</div>
-      <p class="project-desc">A minimalist web math game — discipline through an ant story. The ant character embodies precision and persistence. Published on game portals.</p>
-      <div class="project-stack">
-        <span class="stack-badge">PhaserJS</span><span class="stack-badge">TypeScript</span><span class="stack-badge">Vite</span>
-      </div>
+      <div class="project-cat">AI · Motor Control</div>
+      <div class="project-name">Adam</div>
+      <p class="project-desc">A motor cortex controller — an AI system that models and directs motor execution logic, bridging high-level intent with low-level action sequencing. Inspired by how the brain issues movement commands.</p>
     </div>
 
     <div class="project-card reveal reveal-d3">
       <div class="project-header">
-        <span class="project-icon">☕</span>
-        <div class="project-links"><a href="https://cuffee.netlify.app" target="_blank" class="project-link">Play ↗</a></div>
+        <span class="project-icon">💬</span>
+        <span></span>
       </div>
-      <div class="project-name">Cuffee</div>
-      <p class="project-desc">A coffee-themed HTML5 reward game — a creative spin on the Trophy Lager nationwide campaign game that reached 1M+ users. Optimised for mobile with a daily leaderboard.</p>
-      <div class="project-stack">
-        <span class="stack-badge">HTML5</span><span class="stack-badge">Canvas API</span><span class="stack-badge">JavaScript</span>
-      </div>
+      <div class="project-cat">AI · CLI</div>
+      <div class="project-name">Adda</div>
+      <p class="project-desc">A smart CLI assistant that understands context, remembers state, and helps you navigate complex terminal workflows conversationally. Think of it as a co-pilot for your command line.</p>
     </div>
 
+    <!-- Games -->
     <div class="project-card reveal reveal-d4">
       <div class="project-header">
-        <span class="project-icon">🎄</span>
-        <div class="project-links"><a href="https://treasure-hunt-22.netlify.app" target="_blank" class="project-link">Play ↗</a></div>
+        <span class="project-icon">📚</span>
+        <div class="project-links"><a href="https://app.e-limu.org" target="_blank" class="project-link-btn">Live ↗</a></div>
       </div>
-      <div class="project-name">Christmas Treasure Hunt</div>
-      <p class="project-desc">An interactive story-driven holiday game built for eLimu World's seasonal event. Narrative-first design with rich interactivity for children.</p>
-      <div class="project-stack">
-        <span class="stack-badge">PhaserJS</span><span class="stack-badge">TypeScript</span><span class="stack-badge">EdTech</span>
-      </div>
+      <div class="project-cat">EdTech · Game Dev</div>
+      <div class="project-name">eLimu World</div>
+      <p class="project-desc">Interactive educational games serving 100K+ MAU across Africa. Math Ninja, Numbee, Time Machine, Picture It and more — with AI voice synthesis for character animations.</p>
     </div>
 
     <div class="project-card reveal reveal-d1">
       <div class="project-header">
-        <span class="project-icon">🧠</span>
-        <div class="project-links"><span class="project-link">2019</span></div>
+        <span class="project-icon">🐜</span>
+        <div class="project-links"><a href="https://accumulator-ant.netlify.app" target="_blank" class="project-link-btn">Play ↗</a></div>
       </div>
-      <div class="project-name">Oso — AI Study Companion</div>
-      <p class="project-desc">Conversational AI chatbot for university exam prep using Natural.js (intent classification), RiTa (dialogue management), and Levenshtein distance for fuzzy spelling correction.</p>
-      <div class="project-stack">
-        <span class="stack-badge">NLP</span><span class="stack-badge">Natural.js</span><span class="stack-badge">RiTa</span><span class="stack-badge">Node.js</span>
-      </div>
+      <div class="project-cat">Game</div>
+      <div class="project-name">Accumulator</div>
+      <p class="project-desc">A minimalist web math game — discipline through an ant story. The ant character embodies precision and persistence. Published on game portals.</p>
     </div>
 
     <div class="project-card reveal reveal-d2">
       <div class="project-header">
+        <span class="project-icon">☕</span>
+        <div class="project-links"><a href="https://cuffee.netlify.app" target="_blank" class="project-link-btn">Play ↗</a></div>
+      </div>
+      <div class="project-cat">Game · Promo</div>
+      <div class="project-name">Cuffee</div>
+      <p class="project-desc">A coffee-themed HTML5 reward game — a creative spin on the Trophy Lager nationwide campaign game that reached 1M+ users. Mobile-optimised with a daily leaderboard.</p>
+    </div>
+
+    <div class="project-card reveal reveal-d3">
+      <div class="project-header">
+        <span class="project-icon">🎄</span>
+        <div class="project-links"><a href="https://treasure-hunt-22.netlify.app" target="_blank" class="project-link-btn">Play ↗</a></div>
+      </div>
+      <div class="project-cat">Game · EdTech</div>
+      <div class="project-name">Christmas Treasure Hunt</div>
+      <p class="project-desc">An interactive story-driven holiday game for eLimu World's seasonal event. Narrative-first design with rich interactivity built for children.</p>
+    </div>
+
+    <!-- NLP -->
+    <div class="project-card reveal reveal-d4">
+      <div class="project-header">
+        <span class="project-icon">🤖</span>
+        <span></span>
+      </div>
+      <div class="project-cat">NLP · AI</div>
+      <div class="project-name">Oso — Study Companion</div>
+      <p class="project-desc">Conversational AI chatbot for university exam prep using Natural.js intent classification, RiTa dialogue management, and Levenshtein distance fuzzy spell-checking.</p>
+    </div>
+
+    <!-- Sustainability -->
+    <div class="project-card reveal reveal-d1">
+      <div class="project-header">
         <span class="project-icon">♻️</span>
-        <div class="project-links"><a href="https://www.alterbin.com" target="_blank" class="project-link">Visit ↗</a></div>
+        <div class="project-links"><a href="https://www.alterbin.com" target="_blank" class="project-link-btn">Visit ↗</a></div>
       </div>
+      <div class="project-cat">CleanTech · Community</div>
       <div class="project-name">Alterbin / W.A.R.M Foundation</div>
-      <p class="project-desc">Circular economy platform giving old items new stories. Redistribution logistics, Recyschool sustainability education in Nigerian schools, and 3,000+ kg of PET recovered.</p>
-      <div class="project-stack">
-        <span class="stack-badge">Node.js</span><span class="stack-badge">TypeScript</span><span class="stack-badge">CleanTech</span><span class="stack-badge">Community</span>
-      </div>
+      <p class="project-desc">Circular economy platform giving old items new stories. Redistribution logistics, Recyschool sustainability education, and 3,000+ kg of PET recovered in Ibadan.</p>
     </div>
 
   </div>
@@ -456,39 +350,39 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:1.
       <p>In 2023 I founded <strong>Alterbin</strong> and the <strong>W.A.R.M Foundation</strong> (Waste-As-Raw-Material) — a circular economy ecosystem combining waste recovery, reuse logistics, and sustainability education right here in Ibadan.</p>
       <p>We've recovered and traded <strong>3,000+ kg of PET plastic</strong>, built the <strong>Recyschool</strong> programme enabling students to create products from ≥80% waste materials, and provided real educational support — textbooks and exam-fee sponsorship — for 7 students across 2 schools.</p>
       <p>Circular economy isn't just about recycling. It's a design philosophy. I apply it to code too — every legacy system I touch gets a new story.</p>
-      <p style="margin-top:1.2rem"><a href="https://www.alterbin.com" target="_blank" style="color:var(--accent);font-size:.85rem">Visit alterbin.com →</a></p>
+      <p style="margin-top:1.2rem"><a href="https://www.alterbin.com" target="_blank" style="color:var(--accent);font-size:.84rem">Visit alterbin.com →</a></p>
     </div>
     <div class="cards-2x2 reveal reveal-d2">
       <div class="interest-card">
         <span class="ic-emoji">🧴</span>
         <div class="ic-title">3,000+ kg PET</div>
-        <div class="ic-desc">Field operations in Ibadan — sourcing, pricing, logistics, quality control.</div>
+        <div class="ic-desc">Field operations — sourcing, pricing, logistics, quality control.</div>
       </div>
       <div class="interest-card">
         <span class="ic-emoji">🏫</span>
         <div class="ic-title">Recyschool</div>
-        <div class="ic-desc">Students build products from ≥80% waste with mentorship &amp; certification.</div>
+        <div class="ic-desc">Students build from ≥80% waste. Mentorship, tracking &amp; certification.</div>
       </div>
       <div class="interest-card">
         <span class="ic-emoji">🔄</span>
         <div class="ic-title">Optimal by Alterbin</div>
-        <div class="ic-desc">Community redistribution platform — old items find new owners.</div>
+        <div class="ic-desc">Community redistribution — old items, new owners, new stories.</div>
       </div>
       <div class="interest-card">
         <span class="ic-emoji">📜</span>
         <div class="ic-title">Certified</div>
-        <div class="ic-desc">FutureLearn: Sustainability &amp; CE. edX: Circular Economy Intro.</div>
+        <div class="ic-desc">Project Management for Changemakers — Changemakers School, 2026.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- EDUCATION -->
+<!-- EDUCATION & CERTS -->
 <section id="education" class="section" style="padding-top:0">
-  <div class="sec-label" data-n="06">Education</div>
+  <div class="sec-label" data-n="06">Education &amp; Certifications</div>
   <h2 class="sec-title reveal">The <em>foundation.</em></h2>
   <div class="divider"></div>
-  <div class="exp-list">
+  <div class="exp-list" style="margin-bottom:3rem">
     <div class="exp-item reveal reveal-d1">
       <div class="exp-period">2017 — 2021</div>
       <div class="exp-role">BSc, Computer Science</div>
@@ -498,6 +392,16 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:1.
       <div class="exp-period">2012 — 2014</div>
       <div class="exp-role">National Diploma, Computer Engineering</div>
       <div class="exp-company">The Polytechnic, Ibadan — Nigeria</div>
+    </div>
+  </div>
+  <div class="certs-grid">
+    <div class="cert-card reveal reveal-d1">
+      <span class="cert-icon">🏅</span>
+      <div>
+        <div class="cert-name">Project Management for Changemakers</div>
+        <div class="cert-issuer">Changemakers School · Global Changemakers</div>
+        <div class="cert-date">March 2026 · cert_2zkr2y6d</div>
+      </div>
     </div>
   </div>
 </section>
@@ -534,11 +438,6 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:1.
           <span class="social-handle">alterbin.com</span>
           <span class="social-name">Alterbin</span>
         </a>
-        <a href="https://app.e-limu.org" target="_blank" class="social-item">
-          <span class="social-icon">📚</span>
-          <span class="social-handle">app.e-limu.org</span>
-          <span class="social-name">eLimu World</span>
-        </a>
         <a href="tel:+2348176328528" class="social-item">
           <span class="social-icon">📞</span>
           <span class="social-handle">+234 817 632 8528</span>
@@ -550,81 +449,11 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:1.
 </section>
 
 <footer>
-  <span>© 2026 Femi Ayodeji — Ibadan, Nigeria</span>
-  <span>Built with <span class="footer-heart">♥</span> and deep curiosity</span>
+  <span>© <script>document.write(new Date().getFullYear());</script> Femi Ayodeji · Oluwainstincts · Ibadan, Nigeria</span>
 </footer>
 
-<script>
-const btn = document.getElementById('theme-btn');
-const html = document.documentElement;
-let dark = true;
-btn.addEventListener('click', () => {
-  dark = !dark;
-  html.setAttribute('data-theme', dark ? 'dark' : 'light');
-  btn.textContent = dark ? '☀' : '☾';
-});
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
-}, { threshold: 0.1 });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-const canvas = document.getElementById('bg-canvas');
-const ctx = canvas.getContext('2d');
-function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
-resize(); window.addEventListener('resize', resize);
-const pts = Array.from({ length: 55 }, () => ({
-  x: Math.random() * canvas.width, y: Math.random() * canvas.height,
-  r: Math.random() * 1.4 + .3,
-  vx: (Math.random() - .5) * .22, vy: (Math.random() - .5) * .22,
-  hue: Math.random() > .5 ? 165 : (Math.random() > .5 ? 200 : 280),
-  alpha: Math.random() * .5 + .15,
-}));
-let t = 0;
-function draw() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  const isDark = html.getAttribute('data-theme') !== 'light';
-  [165, 200, 280].forEach((hue, w) => {
-    const amp = 18 + w * 12, freq = .0012 + w * .0005;
-    const yBase = canvas.height * (.25 + w * .25);
-    ctx.beginPath();
-    for (let x = 0; x <= canvas.width; x += 3) {
-      const y = yBase + Math.sin(x * freq + t + w * 2) * amp;
-      x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
-    }
-    ctx.strokeStyle = isDark ? `hsla(${hue},65%,62%,.07)` : `hsla(${hue},55%,40%,.06)`;
-    ctx.lineWidth = 1; ctx.stroke();
-  });
-  pts.forEach(p => {
-    p.x += p.vx; p.y += p.vy;
-    if (p.x < 0) p.x = canvas.width; if (p.x > canvas.width) p.x = 0;
-    if (p.y < 0) p.y = canvas.height; if (p.y > canvas.height) p.y = 0;
-    ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-    ctx.fillStyle = isDark ? `hsla(${p.hue},70%,65%,${p.alpha})` : `hsla(${p.hue},55%,35%,${p.alpha*.6})`;
-    ctx.fill();
-  });
-  for (let i = 0; i < pts.length; i++) {
-    for (let j = i + 1; j < pts.length; j++) {
-      const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
-      const dist = Math.sqrt(dx*dx + dy*dy);
-      if (dist < 100) {
-        ctx.beginPath(); ctx.moveTo(pts[i].x, pts[i].y); ctx.lineTo(pts[j].x, pts[j].y);
-        const a = (1 - dist/100) * (isDark ? .07 : .04);
-        ctx.strokeStyle = isDark ? `rgba(62,207,173,${a})` : `rgba(13,158,129,${a})`;
-        ctx.lineWidth = .6; ctx.stroke();
-      }
-    }
-  }
-  t += .008; requestAnimationFrame(draw);
-}
-draw();
-
-const heroName = document.querySelector('.hero-name');
-document.addEventListener('mousemove', e => {
-  const x = (e.clientX / window.innerWidth - .5) * 8;
-  const y = (e.clientY / window.innerHeight - .5) * 4;
-  heroName.style.transform = `translate(${x}px,${y}px)`;
-});
+</script>
+<script src="scripts.js"></script>
 </script>
 </body>
 </html>
