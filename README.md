@@ -1,8 +1,18 @@
 # Oluwainstincts Portfolio
 
-Welcome to my personal portfolio.
+Welcome to my personal portfolio website.
 
-This is a simple website that shares who I am, what I do, and how to contact me.
+**About Me:**
+- **Name:** Femi Ayodeji
+- **Location:** Ibadan, Nigeria
+- **Profession:** Senior Backend Engineer & AI Solutions Architect
+- **Interests:** Backend/AI, Game Development, Circular Economy, Painting, Biology, Swimming
+
+**What you'll find here:**
+- My background and experience in engineering, AI, and game development
+- Projects I've built, including educational games and AI tools
+- My work in sustainability and the circular economy (Alterbin & W.A.R.M Foundation)
+- Skills, education, and how to contact me
 
 **Sections:**
 - About
