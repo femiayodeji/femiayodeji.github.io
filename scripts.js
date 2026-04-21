@@ -1,3 +1,13 @@
+// Ensure all project external links open in a new tab reliably
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.project-link-btn').forEach(link => {
+    link.addEventListener('click', e => {
+      // Always open in new tab, even if browser JS navigation interferes
+      window.open(link.href, '_blank', 'noopener');
+      e.preventDefault();
+    });
+  });
+});
 // scripts.js - extracted from index.html
 
 /* THEME */
