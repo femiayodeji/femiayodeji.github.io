@@ -106,7 +106,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 /* PROJECTS */
 .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.4rem}
 .project-card{background:var(--surface);border:1px solid var(--border);border-radius:1.2rem;padding:1.6rem;display:flex;flex-direction:column;gap:.7rem;transition:border-color .25s,transform .3s var(--ease),box-shadow .3s;position:relative;overflow:hidden}
-.project-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at top left,var(--glow),transparent 70%);opacity:0;transition:opacity .3s}
+.project-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at top left,var(--glow),transparent 70%);opacity:0;transition:opacity .3s;pointer-events:none}
 .project-card:hover{border-color:var(--accent);transform:translateY(-5px);box-shadow:0 16px 40px rgba(0,0,0,.2)}
 .project-card:hover::before{opacity:1}
 .project-header{display:flex;justify-content:space-between;align-items:flex-start}
