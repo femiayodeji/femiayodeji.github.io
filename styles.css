@@ -27,7 +27,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 [data-theme="light"] nav{background:rgba(240,247,245,.82)}
 .nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;letter-spacing:.01em;color:var(--text)}
 .nav-logo span{color:var(--accent)}
-.nav-links{display:flex;gap:2rem;align-items:center}
+.nav-links{display:flex;gap:1.7rem;align-items:center}
 .nav-links a{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);transition:color .2s;position:relative}
 .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
 .nav-links a:hover{color:var(--text)}.nav-links a:hover::after{transform:scaleX(1)}
@@ -118,13 +118,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .project-desc{font-size:.78rem;color:var(--muted);line-height:1.72;flex:1}
 
 /* CERTIFICATIONS */
-.certs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.2rem}
-.cert-card{background:var(--surface);border:1px solid var(--border);border-radius:1rem;padding:1.3rem;display:flex;gap:1rem;align-items:flex-start;transition:border-color .25s,transform .25s var(--ease)}
-.cert-card:hover{border-color:var(--accent3);transform:translateY(-3px)}
-.cert-icon{font-size:1.5rem;flex-shrink:0}
-.cert-name{font-family:'Syne',sans-serif;font-weight:700;font-size:.82rem;margin-bottom:.2rem}
-.cert-issuer{font-size:.7rem;color:var(--accent3)}
-.cert-date{font-size:.65rem;color:var(--muted);margin-top:.15rem}
+.cert-list{max-width:720px;border-top:1px solid var(--border)}
+.cert-row{display:grid;grid-template-columns:1.5rem 3.6rem 1fr;gap:1.1rem;align-items:baseline;padding:1.05rem .4rem;border-bottom:1px solid var(--border);transition:background .25s var(--ease),padding-left .25s var(--ease)}
+.cert-row:hover{background:var(--surface);padding-left:.9rem}
+.cert-icon{font-size:.95rem;line-height:1;text-align:center}
+.cert-year{font-size:.63rem;letter-spacing:.14em;color:var(--muted)}
+.cert-name{font-family:'Syne',sans-serif;font-weight:700;font-size:.85rem;line-height:1.35;transition:color .25s}
+.cert-row:hover .cert-name{color:var(--accent)}
+.cert-issuer{font-size:.7rem;color:var(--muted);margin-top:.2rem}
 
 /* CONTACT */
 .contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
@@ -150,5 +151,6 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:1.
   #hero{padding:7rem 1.2rem 4rem}.section{padding:4rem 1.2rem}
   .two-col,.contact-inner{grid-template-columns:1fr;gap:2.5rem}
   .cards-2x2{grid-template-columns:1fr 1fr}
+  .cert-row{grid-template-columns:1.4rem 3rem 1fr;gap:.8rem}
   footer{flex-direction:column;gap:.5rem;text-align:center}
 }
